@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/headlineFragment"
+        android:title="HeadLines"
+        android:icon="@drawable/worldcom"
+        />
+    <item
+        android:id="@+id/favoriteFragment"
+        android:title="Favorites"
+        android:icon="@drawable/favorite"
+        />
+    <item
+        android:id="@+id/searchFragment"
+        android:title="Search"
+        android:icon="@drawable/search"
+        />
+
+</menu>
