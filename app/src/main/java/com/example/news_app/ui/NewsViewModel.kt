@@ -8,6 +8,7 @@ import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.room.Query
 import com.example.news_app.models.Article
 import com.example.news_app.models.NewsResponse
 import com.example.news_app.repository.NewsRepository
@@ -30,6 +31,18 @@ class NewsViewModel(app: Application , val newsRepository: NewsRepository): Andr
 
     var newSearchQuery: String? = null
     var oldSearchQuery: String? = null
+
+    init {
+        getHeadlines("us")
+    }
+
+
+    fun  getHeadlines(countryCode: String) = viewModelScope.launch{
+        headlinesInternet(countryCode)
+    }
+ fun  searchNews(searchQuery: String) = viewModelScope.launch{
+        seacrhNewsInternet(searchQuery)
+    }
 
     private fun handleHeadlinesResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
         if(response.isSuccessful)
@@ -119,6 +132,25 @@ class NewsViewModel(app: Application , val newsRepository: NewsRepository): Andr
         }
     }
 
-   // private suspend fun  seacrh
+    private suspend fun  seacrhNewsInternet(searchQuery: String){
+        newSearchQuery = searchQuery
+        searchNews.postValue(Resource.Loading())
+        try {
+            if (internetConnection(this.getApplication()))
+            {
+                val response = newsRepository.searchNews(searchQuery,searchNewsPage)
+                searchNews.postValue(handleSearchNewsResponse(response))
 
+            }
+            else{
+                searchNews.postValue(Resource.Error("No internet connection"))
+            }
+        }catch (t: Throwable){
+            when(t){
+                is IOException -> searchNews.postValue(Resource.Error("Unable to connect"))
+                else -> searchNews.postValue(Resource.Error("No signal"))
+            }
+        }
+
+    }
 }
