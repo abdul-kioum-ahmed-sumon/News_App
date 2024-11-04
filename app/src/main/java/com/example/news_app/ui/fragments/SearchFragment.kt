@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.news_app.R
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(R.layout.fragment_search) {
 
 
 }

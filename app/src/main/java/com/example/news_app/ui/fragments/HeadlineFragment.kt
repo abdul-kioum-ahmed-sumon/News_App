@@ -26,7 +26,7 @@ import com.example.news_app.util.Resource
 import kotlinx.coroutines.flow.merge
 
 
-class HeadlineFragment : Fragment() {
+class HeadlineFragment : Fragment(R.layout.fragment_headline) {
 
 
     lateinit var  newsViewModel: NewsViewModel
@@ -59,7 +59,7 @@ class HeadlineFragment : Fragment() {
                 putSerializable("article", it)
 
             }
-            findNavController().navigate(R.id.action_favouritesFragment_to_articleFragment, bundle)
+            findNavController().navigate(R.id.action_headlineFragment2_to_articleFragment2, bundle)
         }
 
         newsViewModel.headlines.observe(viewLifecycleOwner, Observer { response ->
