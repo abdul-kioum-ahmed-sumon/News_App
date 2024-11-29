@@ -41,7 +41,7 @@ class NewsViewModel(app: Application , val newsRepository: NewsRepository): Andr
         headlinesInternet(countryCode)
     }
  fun  searchNews(searchQuery: String) = viewModelScope.launch{
-        seacrhNewsInternet(searchQuery)
+        searchNewsInternet(searchQuery)
     }
 
     private fun handleHeadlinesResponse(response: Response<NewsResponse>): Resource<NewsResponse>{
@@ -132,7 +132,7 @@ class NewsViewModel(app: Application , val newsRepository: NewsRepository): Andr
         }
     }
 
-    private suspend fun  seacrhNewsInternet(searchQuery: String){
+    private suspend fun  searchNewsInternet(searchQuery: String){
         newSearchQuery = searchQuery
         searchNews.postValue(Resource.Loading())
         try {

@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.devtools.ksp")
-    id("androidx.navigation.safeargs.kotlin")
+    id ("androidx.navigation.safeargs")
 }
 
 android {
@@ -49,6 +49,10 @@ dependencies {
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
+
+
+
+
     // Testing dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -81,5 +85,7 @@ dependencies {
     ksp("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:kotlin_version")
+    implementation ("com.google.android.material:material:1.9.0")
+
 
 }
