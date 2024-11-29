@@ -1,6 +1,5 @@
 package com.example.news_app.ui
 
-import retrofit2.Response
 import android.app.Application
 import android.content.Context
 import android.net.ConnectivityManager
@@ -8,14 +7,13 @@ import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.room.Query
 import com.example.news_app.models.Article
 import com.example.news_app.models.NewsResponse
 import com.example.news_app.repository.NewsRepository
 import com.example.news_app.util.Resource
 import kotlinx.coroutines.launch
 import okio.IOException
-import java.util.Locale
+import retrofit2.Response
 
 
 class NewsViewModel(app: Application , val newsRepository: NewsRepository): AndroidViewModel(app) {
@@ -24,6 +22,9 @@ class NewsViewModel(app: Application , val newsRepository: NewsRepository): Andr
     val headlines: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var headlinesPage = 1
     var headlinesResponse: NewsResponse?  = null
+
+
+
 
     var searchNews : MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1

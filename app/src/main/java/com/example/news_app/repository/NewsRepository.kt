@@ -1,7 +1,6 @@
 package com.example.news_app.repository
-import androidx.room.Query
-import  com.example.news_app.api.RetrofitInstance
 
+import com.example.news_app.api.RetrofitInstance
 import com.example.news_app.db.ArticleDatabase
 import com.example.news_app.models.Article
 

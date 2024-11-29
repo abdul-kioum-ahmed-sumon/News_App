@@ -47,9 +47,9 @@
 package com.example.news_app.ui.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.news_app.R
 import com.example.news_app.databinding.FragmentArticleBinding
@@ -59,9 +59,9 @@ import com.google.android.material.snackbar.Snackbar
 
 class ArticleFragment : Fragment(R.layout.fragment_article) {
 
-    private lateinit var newsViewModel: NewsViewModel
-    private val args: ArticleFragmentArgs by navArgs() // Fixed Safe Args reference
-    private lateinit var binding: FragmentArticleBinding
+ lateinit var newsViewModel: NewsViewModel
+   val args: ArticleFragmentArgs by navArgs() // Fixed Safe Args reference
+    lateinit var binding: FragmentArticleBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -8,7 +8,7 @@
         android:icon="@drawable/worldcom"
         />
     <item
-        android:id="@+id/favoriteFragment"
+        android:id="@+id/favouritesFragment"
         android:title="Favorites"
         android:icon="@drawable/favorite"
         />
