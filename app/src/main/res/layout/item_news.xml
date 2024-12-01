@@ -4,7 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:elevation="2dp"
+    android:padding="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="1dp"
+    android:background="@drawable/rounded_shadow_background"
+    >
+
 
     <ImageView
         android:id="@+id/articleImage"
@@ -12,7 +19,10 @@
         android:layout_height="90dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_corners"
+        android:clipToOutline="true"
+        />
 
     <TextView
         android:id="@+id/articleSource"
